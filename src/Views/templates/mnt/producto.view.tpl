@@ -1,5 +1,5 @@
 <section class="contenedor">
-<h1>{{ModalTittle}}</h1> 
+<h1>{{ModalTittle}}</h1>
 
 <form class="formu" action="index.php?page=mnt_producto" method="POST">
 
@@ -20,11 +20,15 @@
             <br/>
             <input {{readonly}} type="text" name="prdprc" id="prdprc" placeholder="prdprc" value="{{prdprc}}"/>
         </div>
-			<div>
-            <label for="prdImg">Img url</label>
-            <br/>
-            <input {{readonly}} type="file" name="prdImg" id="prdImg" />
-        </div>
+        <label for="prdImg">Img url</label>
+			<div id="bexterior">
+                <div id="binterior">
+                    <p>Pulsa aquí para añadir una imagen</p>
+                    <input {{readonly}} type="file" name="prdImgPrm" id="prdImgPrm" placeholder="prdImgPrm" value="{{prdImgPrm}}"  accept="image/png, image/jpg"/>
+                    </div>
+                <img id="imag" src="">
+                <button type="button" id="basu" onclick="eliminarIma()"> <ion-icon name="trash-outline" id="basurerito"></ion-icon> </button>
+            </div>
         <div>
         <label for="catnom">Categoria</label>
         <br/>
@@ -99,4 +103,49 @@
         });
     }
 });
+
+    let  inputFile = document.getElementById('prdImgPrm');
+    let imgFoto   =document.getElementById('imag');
+    let divInterno =document.getElementById('binterior');
+    let divExterno = document.getElementById('bexterior');
+    let basurerito = document.getElementById('basu');
+
+    const eliminarIma = () =>{
+    divInterno.style.display='block';
+    divExterno.style.height='50px';
+    basurerito.style.display= 'none';
+    imgFoto.style.display='none';
+    imgFoto.src= '';
+    console.log("ingreso");
+    }
+console.log("ingreso");
+const eventos = () => {
+   inputFile.addEventListener('change', (event) => {
+   let tam, arriba;
+    if(screen.width > 750)
+       {
+           tam= '8em';
+           arriba= '3';
+        }
+    else
+        {
+            tam= '4em';
+            arriba= '0';
+        }
+
+       const file = event.target.files[0];
+        console.log(file);
+       subirImagen( file ).then( url => imgFoto.src = url ,
+        divInterno.style.display='none',
+        divExterno.style.height=tam,
+        divExterno.style.zIndex=arriba,
+        divExterno.style.marginTop = '40px',
+        deco.style.marginTop='50px',
+        basurerito.style.display= 'block',
+        imgFoto.style.display='block');
+
+    });
+
+}
+
 </script>
