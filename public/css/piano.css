@@ -32,3 +32,57 @@ button:hover{
     flex-direction: row;
     width:70%;
 }
+
+img {
+    margin-left: 7em;
+    display: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px ;
+    border-style: ridge;
+    z-index: 1;
+}
+
+#bexterior {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    border: 1px solid gray;
+    background-color: white;
+}
+
+#bexterior button{
+    display: none;
+    position: absolute;
+    margin-top: 3em;
+    margin-left: 22em;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    color: #5e5e5e;
+}
+
+#bexterior #binterior {
+    margin: 2px auto;
+    width: 90%;
+    height: 35px;
+    border: 1px dashed gray;
+    padding: auto;
+}
+
+#binterior p {
+    margin-top: 0.75em;
+    overflow: hidden;
+    font-size: small;
+    color: gray;
+}
+
+#binterior input{
+    position: relative;
+    bottom: 2.5em;
+    max-width: auto;
+    opacity: 0;
+    z-index: 3;
+}
