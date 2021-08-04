@@ -8,7 +8,7 @@ namespace Controllers\Mnt;
             \Utilities\Site::addLink("public/css/piano.css");
             $viewData = Array();
             $counter = 0;
-            $tabla = \Dao\ProductoPanel::getAllProductos();
+            $tabla = \Dao\ProductoPanel::getAllProducto();
         foreach($tabla as $ta){
             $counter ++;
             $ta["rownum"] = $counter;

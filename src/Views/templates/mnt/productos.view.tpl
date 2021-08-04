@@ -8,7 +8,9 @@
         <th>Descripción</th>
 				<th>Precio</th>
 				<th>ImgPrm</th>
-				<th>ImgScd</th>
+				<th>Categoria</th>
+        <th>Marca</th>
+        <th>Cantidad</th>
         <th>Modificar/Eliminar</th>
     </tr>
   </thead> 
@@ -18,8 +20,10 @@
       <td>{{rownum}}</td>
       <td><a href="index.php?page=mnt_producto&mode=DSP&id={{prdcod}}">{{prddsc}}</a></td>
 			<td>{{prdprc}}</td>
-			<td>{{prdImgPrm}}</td>
-			<td>{{prdImgScd}}</td>
+			<td>{{prdImg}}</td>
+			<td>{{catid}}</td>
+      <td>{{mrcid}}</td>
+      <td>{{prdcnt}}</td>
       <td>
         <a href="index.php?page=mnt_producto&mode=UPD&id={{prdcod}}">Editar/</a>
         <a href="index.php?page=mnt_producto&mode=DEL&id={{prdcod}}">Eliminar</a>

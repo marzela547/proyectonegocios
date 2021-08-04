@@ -23,14 +23,14 @@
 			<div>
             <label for="prdImg">Img url</label>
             <br/>
-            <input {{readonly}} type="text" name="prdImgPrm" id="prdImgPrm" placeholder="prdImgPrm" value="{{prdImgPrm}}"/>
+            <input {{readonly}} type="file" name="prdImg" id="prdImg" />
         </div>
         <div>
         <label for="catnom">Categoria</label>
         <br/>
         <select name="catnom" id="catnom" {{if readonly}} readonly disabled {{endif readonly}}>
         {{foreach categorias}}
-            <option value="catnom" {{if catnom}}selected{{endif catnom}}>{{catnom}}</option>
+            <option value="catid" {{if catnom}}selected{{endif catnom}}>{{catnom}}</option>
         {{endfor categorias}}
         </select>
     </div>
@@ -39,7 +39,7 @@
         <br/>
         <select name="mrcnom" id="mrcnom" {{if readonly}} readonly disabled {{endif readonly}}>
         {{foreach marcas}}
-            <option value="catnom" {{if mrcnom}}selected{{endif mrcnom}}>{{mrcnom}}</option>
+            <option value="catid" {{if mrcnom}}selected{{endif mrcnom}}>{{mrcnom}}</option>
         {{endfor marcas}}
         </select>
     </div>
@@ -71,4 +71,32 @@
             window.location.assign("index.php?page=mnt_productos");
         });
     });
+
+    const url = "'https://api.cloudinary.com/v1_1/defil6trk/upload'";
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const files = document.querySelector("prdImg").files;
+    const formData = new FormData();
+
+    for (let i = 0; i < files.length; i++){
+        let file = files[i];
+        formData.append("file", file);
+        formData.append("upload_preset", "edpun0xj");
+
+        fetch(url, {
+        method: "POST",
+        body: formData
+        })
+        .then((response) => {
+            return response.text();
+        })
+        .then((data) => {
+            //document.getElementById("data").innerHTML += data;
+            console.log(data);
+        });
+    }
+});
 </script>
