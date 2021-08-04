@@ -2,10 +2,10 @@
 
 namespace Controllers\Mnt;
 
-class AgregarP extends \Controllers\PublicController{
+class Agregarprod extends \Controllers\PublicController{
     public function run(): void
     {
-
+        \Utilities\Site::addLink("public/css/agregarproducto.css");
         $viewData = array();
         $viewData["idPro"] ="";
         $viewData["nombrePro"] ="";
@@ -27,7 +27,7 @@ class AgregarP extends \Controllers\PublicController{
             switch($viewData["mode"])
             {
                 case "INS":
-                    $ok = \Dao\ProductosPanel::addProductos(
+                    $ok = \Dao\ProductoPanel::addProducto(
                         $viewData["nombrePro"],
                         $viewData["marcapro"],
                         $viewData["categoriapro"],
@@ -38,12 +38,11 @@ class AgregarP extends \Controllers\PublicController{
                     break;
             }
         }else{
-            /*$viewData["mode"]== $_GET["mode"];*/
+            $viewData["mode"]== $_GET["mode"];
             $viewData["idPro"]== isset($_GET["idPro"]);
         }
-        /*\Utilities\Site::addLink("public/css/agregarp.css");*/
-        $Datos = array();
-        \Views\Renderer::render("mnt/agregarp", $Datos);
+
+        \Views\Renderer::render("mnt/agregarproducto", $viewData);
     }
 }
 

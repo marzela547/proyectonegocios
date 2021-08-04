@@ -1,0 +1,450 @@
+
+header {
+    background-image: url(/SimplePHPMvcOPP/public/imgs/logopagina2.png);
+    background-repeat: no-repeat;
+    background-size: 90%;
+    background-position: center;
+    position:relative;
+    padding-bottom: 20%;
+    height: 170px;
+    display:flex;
+    justify-content: space-between;
+    box-shadow: 1px 2px #c7c7c762;
+}
+
+body{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Lato', sans-serif;
+}
+
+main {
+    margin: 2rem 2em 2em 2em;
+    display: flex;
+    clear: both;
+    font-family: 'Roboto', sans-serif;
+}
+
+header nav .hmbbttn{
+    box-sizing: border-box;
+    position:absolute;
+    top:0px;
+    right:0px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 0.4em 0.35em;
+    cursor:pointer;
+    transform:rotate(0deg);
+    transition: transform 1s ease;
+}
+ header #color {
+    background-color: #000;
+    display: block;
+    width: 100%;
+    height: 55px;
+}
+
+header nav{
+    max-width: 0vh;
+    transition: max-width 2s ease;
+}
+
+header nav ul li {
+    display: none;
+}
+
+header nav.open{
+    position: absolute;
+    max-width: 100vh;
+    top: 50px;
+    right: 0px;
+    z-index: 3;
+    background-color: #000000;
+    color: #ffffff;
+    height: auto;
+    transition: max-width 2s ease;
+}
+
+header nav.open ul li{
+    display: block;
+}
+
+header .hmbbttn{
+    position: fixed;
+    margin-top: 5px;
+}
+
+header nav.open .hmbbttn {
+    position: fixed;
+    transform: rotate(90deg);
+    transition: transform 1s ease;
+}
+
+header nav .hmbbttn div{
+    box-sizing: border-box;
+    background-color:#ffffff;
+    height: 5px;
+    width:100%;
+    border-radius: 2px;
+}
+
+header nav ul{
+    list-style: none;
+    padding:0px;
+    margin:0px;
+}
+
+header nav ul li a{
+    box-sizing:border-box;
+    display:block;
+    padding:0.75em 1em;
+    text-decoration:none;
+    color: #ffffff;
+}
+
+header nav ul #Marcas{
+    box-sizing:border-box;
+    padding:0.75em 1em;
+    text-decoration:none;
+    color: #ffffff;
+}
+
+header nav ul li ul{
+    display: none;
+    max-height: 0vh;
+    transition: max-height 2s ease;
+}
+
+
+header nav ul li.presiona {
+    box-sizing:border-box;
+    display: block ;
+}
+
+header nav ul li.presiona ul{
+    box-sizing:border-box;
+    display: block !important;
+    max-height: 100vh;
+    padding:0.75em 1em;
+    color: #ffffff;
+    text-decoration:none;
+    transition: max-height 2s ease;
+}
+
+header nav ul li.presiona ul li ul{
+    visibility: hidden;
+    max-height: 0vh;
+    transition: max-height 0.5s ease;
+}
+
+header nav ul li.presiona ul li.pandora ul{
+    box-sizing:border-box;
+    visibility: visible;
+    display: block;
+    max-height: 100vh;
+    padding:0.75em 1em;
+    color: #ffffff;
+    text-decoration:none;
+    transition: max-height 2s ease;
+}
+
+header nav ul li.presiona ul li.casio ul{
+    box-sizing:border-box;
+    visibility: visible;
+    display: block;
+    max-height: 100vh;
+    padding:0.75em 1em;
+    color: #ffffff;
+    text-decoration:none;
+    transition: max-height 2s ease;
+}
+
+header nav ul li.presiona ul li.bgood ul{
+    box-sizing:border-box;
+    visibility: visible;
+    display: block;
+    max-height: 100vh;
+    padding:0.75em 1em;
+    color: #ffffff;
+    text-decoration:none;
+    transition: max-height 2s ease;
+}
+
+@media screen and (min-width: 770px){
+
+    header {
+        background-size: 30%;
+        margin: 0px;
+        padding: 0px;
+        height: 17em;
+    }
+
+    header nav{
+        float: inline-end;
+        position: absolute;
+        top: 90%;
+        left: 0px;
+        width: 100%;
+        max-width: none;
+        background-color: #ffffff; 
+        box-shadow: 1px 2px #c7c7c7b0;
+        border-top: 1px solid #c7c7c7;
+        height: auto;
+    }
+
+    header nav ul{
+        list-style: none;
+        padding: 0px;
+        position: relative;
+        margin: 0%;
+    }
+
+    header nav ul li{
+        display: inline-block;
+        padding: 1em 1.5em;
+        margin: 0%;
+        color: #3f3e3e;
+        text-decoration: none;
+        transition: background-color 1s ease;
+    }
+
+    header nav ul li a{
+        padding: 0px;
+        display: inline-block;
+        color: #3f3e3e;
+        transition: background-color 1s ease;
+    }
+
+    header nav ul li:hover{
+        background-color:#f0f0f0 ;
+        transition: background-color 1s ease;
+    }
+
+    header nav .hmbbttn div{
+        display: none;
+    }
+
+    span{
+        display: none;
+    }
+
+    #Marcas{
+        color: #3f3e3e !important ;
+        position: relative;
+        box-sizing: border-box;
+    }
+
+    .marcas, .nieto {
+        position: absolute;
+        min-width: 150px;
+        top:0;
+        left: 100%;
+        display: none;
+        max-height: 0%;
+        opacity: 0;
+        transition: max-height 0.5s ease-in, opacity 0.5s ease;
+        list-style-type: none;
+        z-index: 1;
+    }
+
+    .marcas li, .nieto li {
+        position: relative;
+        color: #3f3e3e;
+        padding: 12px 16px;
+        background-color:#fff ;
+        text-decoration: none;
+        display: block;
+    }
+
+    #Marcas:hover > .marcas{
+        display:inherit;
+        max-height: 100%;
+        opacity: 1;
+        transition: max-height 0.5s ease-in, opacity 0.5s ease;
+    }
+
+    #Marcas .marcas:hover #m1:hover .nieto, #Marcas .marcas:hover #m2:hover .nieto,  #Marcas .marcas:hover #m3:hover .nieto,#Marcas .marcas:hover #m4:hover .nieto{
+        max-height: 100%;
+        opacity: 1;
+        display:inherit;
+        transition: max-height 0.5s ease-in, opacity 0.5s ease;
+    }
+}
+
+footer {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background: #f3f3f3b0;
+    color: #585858;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.logo{
+    width: 100%;
+    text-align: center;
+    height: 10%px;
+    margin: 0px;
+}
+
+.redes,.contactos{
+    width: 49%;
+}
+
+.logo img{
+ height:100px;
+
+}
+
+.informacion{
+    margin: 0px;
+    width: 100%;
+    height: 300px;
+    display:flex;
+    justify-content: center;
+}
+
+.informacion h2{
+    text-align: center;
+}
+
+.redes{
+    width: 600px;
+    display: block;
+}
+
+.redes div{
+    margin-top: 1em;
+}
+
+.redes div a{
+    width: 10px;
+    display: flex;
+    padding: 0px;
+    align-items: center;
+}
+
+.redes div a img{
+    margin-left: 2.5em;
+    width: 36px;
+    height: 36px;
+}
+
+.redes div a label{
+    margin-left: 10px;
+    padding: 0px;
+}
+
+.redes div a{
+    width: 100%;
+    text-decoration: none;
+    color: #585858;
+}
+
+.contactos{
+    display:block;
+    width: 700px;
+}
+
+.contactos div{
+    margin: 20px 10px 10px 10px;
+    display: flex;
+}
+
+.contactos div img{
+    width: 36px;
+    height: 36px;
+}
+
+.contactos div label{
+ margin-left: 20px;
+ max-width: 140px;
+ margin-top: 10px;
+}
+
+.container-footer{
+    width: 100%;
+    background: #101010;
+}
+
+.copyright{
+    color: #c7c7c7;
+    font-size: 1em;
+}
+
+.information{
+    padding-top: 12px ;
+}
+
+.information a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.footer{
+    font-size:  1em;
+    padding-right: 1em;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 1024px){
+    footer {
+        height:35em;
+    }
+
+    .logo{
+        height: 30%;
+        margin: 0px;
+        padding: 0px;
+
+    }
+
+    .logo img{
+        height:150px;
+        margin: 20px;
+    }
+}
+
+@media screen and (min-width: 1100px){
+    .container-body{
+        flex-wrap: wrap;
+    }
+
+    .logo{
+        width: 54%;
+    }
+
+    .logo img{
+        height:150px;
+        margin: 20px;
+    }
+
+    .informacion{
+        width: 45%;
+    }
+
+    .redes{
+        width: 600px;
+        margin-left:5em;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .logo{
+        height: 20%;
+    }
+    .logo img{
+        height:100px;
+        margin: 20px;
+    }
+}

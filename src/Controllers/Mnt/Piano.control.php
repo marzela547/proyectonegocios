@@ -8,6 +8,12 @@ class Piano extends \Controllers\PublicController{
         \Utilities\Site::addLink("public/css/piano.css");
 
         $Datos = array();
+        $ModalTitles = array(
+            "INS"=> "Nuevo piano",
+            "UPD"=> "Actualiza %s %s",
+            "DSP"=> "Detalle de %s %s ",
+            "DEL"=> "Elimando %s %s"
+        );
         $Datos["ModalTittle"] = "";
         $Datos["Id_piano"] = 0;
         $Datos["Descrip_piano"] = "";

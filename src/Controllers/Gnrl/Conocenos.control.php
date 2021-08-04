@@ -1,13 +1,13 @@
 <?php
 
-namespace Controllers\Mnt;
+namespace Controllers\Gnrl;
 
-class Contacto extends \Controllers\PublicController{
+class Conocenos extends \Controllers\PublicController{
     public function run(): void
     {
         /*\Utilities\Site::addLink("public/css/contacto.css");*/
         $Datos = array();
-        \Views\Renderer::render("mnt/contacto", $Datos);
+        \Views\Renderer::render("gnrl/conocenos", $Datos);
     }
 }
 
