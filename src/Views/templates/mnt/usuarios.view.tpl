@@ -10,10 +10,10 @@
         <th>Tipo User</th>
         <th>Modificar/Eliminar</th>
     </tr>
-  </thead> 
+  </thead>
   <tbody>
     {{foreach usuarios}}
-      <td><a href="index.php?page=mnt_usuario&mode=DSP&id={{usercod}}">{{username}}</a></td>
+      <td>{{username}}</td>
       <td>{{useremail}}</td>
       <td>{{userest}}</td>
       <td>{{rolescod}}</td>

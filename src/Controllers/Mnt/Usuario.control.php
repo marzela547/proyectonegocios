@@ -7,34 +7,29 @@ class Usuario extends \Controllers\PublicController
     {
         public function run(): void
         {
+          
             $viewData = array();
             $ModalTitles= array(
                 "UPD" => "Actualizar %s %s",
                 "DSP" => "Detalle de %s %s",
                 "DEL" => "Eliminado %s"
             );
+
             $roles = \Dao\UsuarioPanel::getAllRoles();
             foreach($roles as $ro){
                 $viewData["roles"][]=$ro;
             }
-             $viewData["ModalTitle"]="";
-             $viewData["usercod"]=0;
-             $viewData["username"]="fgodoy";
-             $viewData["useremail"]="fgodoy04@te.tec";
-             $viewData["rolescod"]="PBL ";
-             $viewData["userest"]="ACT";
+          
+            $viewData["ModalTitle"]="";
+            $viewData["usercod"]=0;
+            $viewData["username"]="fgodoy";
+            $viewData["useremail"]="fgodoy04@te.tec";
+            $viewData["rolescod"]="";
+            $viewData["userest"]="";
 
 
             if($this->isPostBack())
             {
-                if($_REQUEST["ACT"])
-                {
-                    $viewData["userest"]="ACT";
-                }
-                if($_REQUEST["INA"])
-                {
-                    $viewData["userest"]="INA";
-                }
                 
                 $viewData = array();
                 $viewData["mode"]=$_POST["mode"];
@@ -42,24 +37,22 @@ class Usuario extends \Controllers\PublicController
                 $viewData["username"]=$_POST["username"]  ;
                 $viewData["useremail"]=$_POST["useremail"];
                 $viewData["userest"]=$_POST["userest"];
-                $viewData["userest_act"]= $viewData["userest"]="ACT";
-                $viewData["userest_ina"]=$viewData["userest"]="INA";
-              /*  switch($viewData["mode"])
+                $viewData["rolescod"]=$_POST["rolescod"];
+
+                switch($viewData["mode"])
                 {
                     case "UPD":
-                        $ok = \Dao\UsuarioPanel::updateUser(
-                            $viewData["username"],
+                      $ok = \Dao\UsuarioPanel::updateUser(
                             $viewData["useremail"],
+                            $viewData["username"],
                             $viewData["userest"],
+                            $viewData["usercod"]
+                        );
+                        $ok1 = \Dao\UsuarioPanel::updateUserRole(
                             $viewData["rolescod"],
                             $viewData["usercod"]
                         );
-                        $ok = \Dao\UsuarioPanel::updateUserRole(
-                            $viewData["rolescod"],
-                            $viewData["usercod"]
-                        );
-                        echo $ok;
-                        if($ok){
+                       if($ok && $ok1){
                             \Utilities\Site::redirectToWithMsg(
                                 "index.php?page=mnt_usuarios",
                                 "Usuario modificado exitosamente"
@@ -77,13 +70,11 @@ class Usuario extends \Controllers\PublicController
                             );
                         }
                     break;
-                }*/
-            } /*else {
+                }
+            } else {
                 $viewData["mode"]= $_GET["mode"];
                 $viewData["usercod"]= isset($_GET["id"])? $_GET["id"]: 0;;
-            }*/
-
-            /*
+            }
             if($viewData["mode"] == "INS")
             {
                 $viewData["ModalTitle"] = "Agregar";
@@ -100,7 +91,7 @@ class Usuario extends \Controllers\PublicController
                 {
                     $viewData["readonly"] = "readonly";
                 }
-            }*/
+            }
             \Views\Renderer::render("mnt/usuario", $viewData);
         }
 

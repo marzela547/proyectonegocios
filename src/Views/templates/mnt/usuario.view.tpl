@@ -19,24 +19,18 @@
         <br/>
         <input type="text" name="useremail" id="useremail" placeholder="Biografía" value="{{useremail}}"/>
     </div>
+
     <div>
-            <label for="catnom">Rol</label>
-            <br/>
-            <select name="rolesdsc" id="rolesdsc" >
-            {{foreach roles}}
-                <option value="rolescod" {{if catnom}}selected{{endif catnom}}>{{rolesdsc}}</option>
-            {{endfor roles}}
-            </select>
-        </select>
+        <label for="rolescod">Rol</label>
+        <br/>
+        <input type="text" name="rolescod" id="rolescod"  value="{{rolescod}}"/>
     </div>
-    <div>
+        <div>
         <label for="userest">Estado</label>
         <br/>
-        <select name="userest" id="userest">
-            <option value="ACT" >Activo</option>
-            <option value="INA" >Inactivo</option>
-        </select>
+        <input type="text" name="userest" id="userest" value="{{userest}}"/>
     </div>
+
     <div>
         <button type="submit" name="btnConfirmar" >Confirmar</button>
         <button type="button" name="btnCancelar" >Cancelar</button>

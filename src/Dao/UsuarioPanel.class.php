@@ -21,40 +21,42 @@ class UsuarioPanel extends Table
     }
     public static function getUserById($id)
     {
-        $sqlstr = "SELECT * FROM usuario WHERE usercod=:usercod";
+        $sqlstr = "SELECT a.usercod,username,useremail,userest,rolescod FROM usuario a 
+        INNER JOIN roles_usuarios b on a.usercod = b.usercod
+        WHERE a.usercod=:usercod;";
         $parameters = array("usercod"=>$id);
         $registro = self::obtenerUnRegistro($sqlstr, $parameters);
         return $registro;
 
     }
 
+
     public static function updateUser($useremail,$username,$userest,$usercod)
     {
-        echo "User up";
-        $updSQL = "UPDATE usuario SET  useremail = :useremail ,username =:username, userest =:userest,
-        WHERE usercod =:usercod;";
+        $updSQL = "UPDATE 
+        `usuario` SET `useremail`=:useremail,`username`=:username,`userest`=:userest
+                 WHERE `usercod`=:usercod; ";
         $parameters= array(
-            "usuario" => $useremail,
-            "useremail" => $username,
-            "username" => $userest,
-            "usercod " => $usercod
+            "useremail" => $useremail,
+            "username" => $username,
+            "userest" => $userest,
+            "usercod" => $usercod
         );
 
         return self::executeNonQuery($updSQL,$parameters);
     }
     public static function updateUserRole($rolescod,$usercod)
     {
-        $updSQL = "UPDATE roles_usuarios SET rolescod =:rolescod,
-        WHERE usercod=:usercod = AND rolescod =:rolescod ;
-        ";
+
+        $updSQL = "UPDATE roles_usuarios SET rolescod= :rolescod
+        WHERE usercod=:usercod ";
         $parameters= array(
-            "usercod" => $usercod,
             "rolescod" => $rolescod,
-
+            "usercod" => $usercod
         );
-        return self::executeNonQuery($updSQL,$parameters);
-    }
 
+        return self::executeNonQuery($updSQL,$parameters);
+    }    
     public static function deleteUser($usercod)
     {
         echo "User del";
