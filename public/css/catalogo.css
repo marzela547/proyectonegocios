@@ -1,0 +1,60 @@
+body{
+    background-color:#ffffff;
+}
+header{
+    background-color: #162b29;
+}
+
+section {
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.tarjetas {
+    background-color: #ffffff;
+    box-sizing: border-box;
+    border-radius: 50px;
+    width: 300px;
+    min-height: min-content;
+    box-shadow: 10px 10px 5px #d3d3d3;
+    padding: 0.5em;
+    margin: 0.5rem;
+    text-align: center;
+}
+.subtarjeta {
+    width: 100%;
+    text-align: justify;
+}
+
+h1, h2, h3{
+    text-align: center;
+}
+
+.precio{
+    color: orange;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50px;
+}
+
+.button{
+    background-color: orange;  
+    margin: 0.75em;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+}
+
+.button:hover{
+    background-color: #ffc401f6;
+}
+
+ion-icon {
+    font-size: 1.5em;
+    font-weight: bold;
+}
