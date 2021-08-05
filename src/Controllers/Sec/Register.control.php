@@ -8,6 +8,7 @@ use Exception;
 
 class Register extends PublicController
 {
+
     private $txtEmail = "";
     private $txtPswd = "";
     private $txtPswd2 = "";
@@ -22,6 +23,7 @@ class Register extends PublicController
     public function run(): void
     {
 
+        \Utilities\Site::addLink("public/css/login.css");
         if ($this->isPostBack()) {
             $this->txtEmail = $_POST["txtEmail"];
             $this->txtPswd = $_POST["txtPswd"];

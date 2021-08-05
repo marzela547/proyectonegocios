@@ -1,0 +1,202 @@
+body{
+    background-color:#f8f8f8;
+}
+header{
+    background-color: #162b29;
+}
+
+section {
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+}
+.shopping{
+    background-color: #ffffff;
+    box-sizing: border-box;
+    box-shadow: 2px #d3d3d3;
+    width: 1000px;
+}
+
+.precios{
+    text-align: end;
+    font-size: medium;
+}
+.cantidades{
+    width: 70%;
+    height: 50%;
+    align-items: center;
+    margin: auto;
+    background-color: salmon;
+}
+.subtitulos{
+    display: flex;
+    width: 100%;
+    height: 10%;
+    margin: 0px;
+}
+
+ .descripcion{
+     margin-left: 32%;
+}
+.cantidadt{
+    margin-left: 15%;
+}
+.precio{
+    text-align: end;
+    margin-left:18%;
+}
+.tarjetas {
+    display: flex;
+    border-radius: 0px;
+    width: 100%;
+    min-height: min-content;
+    padding: 0.5em;
+    text-align: center;
+}
+.info{
+    width: 35%;
+
+}
+.subtarjeta {
+    width: 100%;
+    text-align: justify;
+    display: flex;
+    height:80%;
+}
+.verti{
+    display: block;
+}
+.subtarjeta div {
+    margin: auto;
+    text-align: center;
+}
+img {
+    width: 150px;
+    height: 150px;
+    
+}
+.buttonc{
+    background-color: orange;
+    width: 70%;
+    height: 50%;
+    border: none;
+    text-align: center;
+    font-size: x-small;
+    margin-left:70% ;
+    color: #fff;
+}
+.buttonc:hover{
+    background-color: #f7ba82;
+}
+.total{
+
+    width: 100%;
+    text-align: end;
+    display: flex;
+    margin-left:70%;
+
+}
+.total p{
+    width: 100%;
+    text-align: end;
+    display: flex;
+    margin: 20px;
+}
+.btnCompra
+{
+    
+    width: 20%;
+    margin-left: 15%;
+    background-color: rgb(35, 184, 35);
+    border-color: rgb(35, 184, 35);
+}
+.btnCompra:hover
+{
+    background-color: rgb(59, 223, 59);
+}
+/*-------------------------------------------------------------------*/
+.tablacarrito{
+    width: 100%;
+    margin: auto;
+
+}
+.tablacarritos{
+    margin-left: 25%;
+    margin: auto;
+    width: 50%;
+
+}
+
+.cantidadesc{
+    width: 100%;
+    height: 60%;
+    align-items: center;
+    margin-top:40% ;
+}
+
+ion-icon {
+    font-size: 1.5em;
+    margin: auto 0px;
+    color: #4b4b4b;
+  }
+
+  ion-icon:hover {
+    font-size: 1.5em;
+    margin: auto 0px;
+    color: #a3a3a3;
+  }
+
+.canti{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.volumen{
+    font-size: 2.5em;
+    margin: 0px 0.5em;
+    width: fit-content;
+}
+
+.buttoncc{
+    background-color: orange;
+    width: 100%;
+    height: 50%;
+    border: none;
+    text-align: center;
+    font-size: x-small;
+    color: #fff;
+}
+.buttoncc:hover{
+    background-color: #f7ba82;
+}
+
+.btnComprar
+{
+    
+    width: 100%;
+    margin-top: 5px;
+    margin-left: 200%;
+    background-color: rgb(35, 184, 35);
+    border-color: rgb(35, 184, 35);
+}
+
+.btnComprar:hover
+{
+    background-color: rgb(59, 223, 59);
+}
+
+
+.canti{
+ display: flex;
+ margin-top:35px;
+ text-align: center;
+
+    
+}
+
+td, th {
+    margin: 0px 50px;
+
+}

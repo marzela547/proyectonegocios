@@ -21,9 +21,10 @@
     <nav id="inav" class="cnav">
         <ul>
             <li><a href="index.php?page=gnrl_inicio">Inicio</a></li>
+            <li><a href="index.php?page=sec_login">Iniciar Sesión</a></li>
+            <li><a href="index.php?page=sec_register">Crear Cuenta</a></li>
             <li><a href="index.php?page=gnrl_conocenos">Conócenos</a></li>
             <li><a href="index.php?page=gnrl_contactanos">Contactanos</a></li>
-            <li><a href="index.php?page=mnt_productos">Agregar Productos</a></li>
             <li id="Marcas">Catálogo
                 <ul class="marcas">
                     <li id="m1">Pandora
@@ -49,6 +50,7 @@
                     </li>
                 </ul>
             </li>
+            <li><a href="index.php?page=mnt_productos">Agregar Productos</a></li>
         </ul>
         <div class="hmbbttn">
             <div></div>
