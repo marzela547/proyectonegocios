@@ -3,6 +3,8 @@
 namespace Utilities;
 
 class Validators {
+ 
+   
 
     static public function IsEmpty($valor)
     {
@@ -27,5 +29,3 @@ class Validators {
         
     }
 }
-
-?>

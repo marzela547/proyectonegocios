@@ -122,5 +122,3 @@ class Categoria extends \Controllers\PrivateController
         $this->showaction = !($this->mode == "DSP");
     }
 }
-
-?>

@@ -1,8 +1,9 @@
 <?php
+
 namespace Dao\Security;
 
 if (version_compare(phpversion(), '7.4.0', '<')) {
-        define('PASSWORD_ALGORITHM', 1);  //BCRYPT
+    define('PASSWORD_ALGORITHM', 1);  //BCRYPT
 } else {
     define('PASSWORD_ALGORITHM', '2y');  //BCRYPT
 }
@@ -25,6 +26,7 @@ use Exception;
 
 class Security extends \Dao\Table
 {
+
     static public function newUsuario($email, $password, $user)
     {
         if (!\Utilities\Validators::IsValidEmail($email)) {
@@ -48,7 +50,7 @@ class Security extends \Dao\Table
         $newUser["userpswdest"] = Estados::ACTIVO;
         $newUser["userpswdexp"] = date('Y-m-d', time() + 7776000);  //(3*30*24*60*60) (m d h mi s)
         $newUser["userest"] = Estados::ACTIVO;
-        $newUser["useractcod"] = hash("sha256", $email.time());
+        $newUser["useractcod"] = hash("sha256", $email . time());
         $newUser["usertipo"] = UsuarioTipo::PUBLICO;
 
         $sqlIns = "INSERT INTO `usuario` (`useremail`, `username`, `userpswd`,
@@ -60,17 +62,46 @@ class Security extends \Dao\Table
             now(), :usertipo);";
 
         return self::executeNonQuery($sqlIns, $newUser);
+    }
+    public static function addRolesUsuarios($usercod, $rolescod, $roleuserest, $roleuserfch, $roleuserexp)
+    {
+        $sqlIns = "INSERT INTO `pry_jewelery_lovers`.`roles_usuarios` (`usercod`,`rolescod`,`roleuserest`, `roleuserfch`,
+          `roleuserexp`)  VALUES (:usercod,:rolescod,:roleuserest,:roleuserfch,:roleuserexp);";
 
+        $parameters = array(
+            'usercod' => $usercod,
+            'rolescod' => $rolescod,
+            'roleuserest' => $roleuserest,
+            'roleuserfch' => $roleuserfch,
+            'roleuserexp' => $roleuserexp
+        );
+        return self::executeNonQuery($sqlIns, $parameters);
+    }
+    static public function getUltimoCodUser()
+    {
+        $registros = array();
+        $registros = self::obtenerUnRegistro(
+            'select  usercod from usuario order by usercod desc limit 1',
+            array()
+        );
+        return $registros;
     }
 
     static public function getUsuarioByEmail($email)
     {
         $sqlstr = "SELECT * from `usuario` where `useremail` = :useremail ;";
-        $params = array("useremail"=>$email);
+        $params = array("useremail" => $email);
 
         return self::obtenerUnRegistro($sqlstr, $params);
     }
-    
+    static public function getUsuarioByUser($username)
+    {
+        $sqlstr = "SELECT * from `usuario` where `username` = :username ;";
+        $params = array("username" => $username);
+        return self::obtenerUnRegistro($sqlstr, $params);
+    }
+
+
     static private function _saltPassword($password)
     {
         /*if ($salt % 2 == 0) {
@@ -116,14 +147,16 @@ class Security extends \Dao\Table
         );
     }
 
+
+
     static public function getFeature($fncod)
     {
         $sqlstr = "SELECT * from funciones where fncod=:fncod;";
-        $featuresList = self::obtenerRegistros($sqlstr, array("fncod"=>$fncod));
+        $featuresList = self::obtenerRegistros($sqlstr, array("fncod" => $fncod));
         return count($featuresList) > 0;
     }
 
-    static public function addNewFeature($fncod, $fndsc, $fnest, $fntyp )
+    static public function addNewFeature($fncod, $fndsc, $fnest, $fntyp)
     {
         $sqlins = "INSERT INTO `funciones` (`fncod`, `fndsc`, `fnest`, `fntyp`)
             VALUES (:fncod , :fndsc , :fnest , :fntyp );";
@@ -148,7 +181,7 @@ class Security extends \Dao\Table
         $resultados = self::obtenerRegistros(
             $sqlstr,
             array(
-                "usercod"=> $userCod,
+                "usercod" => $userCod,
                 "fncod" => $fncod
             )
         );
@@ -198,7 +231,7 @@ class Security extends \Dao\Table
         where rolescod=:rolescod and usercod=:usercod;";
         return self::executeNonQuery(
             $sqldel,
-            array("rolescod"=>$rolescod, "usercod"=>$userCod)
+            array("rolescod" => $rolescod, "usercod" => $userCod)
         );
     }
 
@@ -213,11 +246,9 @@ class Security extends \Dao\Table
     }
     static public function getUnAssignedFeatures($rolescod)
     {
-        
     }
     static public function getUnAssignedRoles($userCod)
     {
-
     }
     private function __construct()
     {
@@ -226,6 +257,3 @@ class Security extends \Dao\Table
     {
     }
 }
-
-
-?>
